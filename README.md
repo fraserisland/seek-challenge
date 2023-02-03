@@ -1,6 +1,23 @@
-# Getting Started with Create React App
+# Seek Coding Exercise
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+For this code challenge, the task was to implement a checkout system with pricing rules based on the customer.
+
+The interface was assumed to follow the following pseudocode:
+
+```
+Checkout co = Checkout.new(pricingRules)
+co.add(item1)
+co.add(item2)
+co.total()
+```
+
+I integrated it with a React component for the frontend, although this is not ideal as it combines different design patterns.
+
+Using OOP instances with methods that modify internal state will hinder the ability to observe changes in state.
+
+While many essential features of a checkout system are missing, this is a good starting point.
+
+Thanks!
 
 ## Available Scripts
 
