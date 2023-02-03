@@ -1,14 +1,13 @@
-import React from 'react';
+import React from "react";
 import CheckoutPOC from "./components/CheckoutPOC";
 
 const App = () => (
-  <div className="App">
+  <main className="App">
     <header>
       <h1>Checkout!</h1>
     </header>
     <CheckoutPOC />
-  </div>
+  </main>
 );
-
 
 export default App;

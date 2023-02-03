@@ -15,7 +15,7 @@ I integrated it with a React component for the frontend, although this is not id
 
 Using OOP instances with methods that modify internal state will hinder the ability to observe changes in state.
 
-While many essential features of a checkout system are missing, this is a good starting point.
+While MANY essential features of a checkout system are missing, this is a good starting point.
 
 Thanks!
 
