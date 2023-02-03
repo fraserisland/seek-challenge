@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import CheckoutPOC from "./components/CheckoutPOC";
 
 const App = () => (
@@ -9,6 +9,5 @@ const App = () => (
     <CheckoutPOC />
   </div>
 );
-
 
 export default App;
