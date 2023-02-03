@@ -8,9 +8,7 @@ import { Customers, Product, products } from "../../shared";
 const co = Checkout.new(pricingRules);
 
 const CheckoutPOC = () => {
-  const [currentCustomer, setCurrentCustomer] = useState<Customers>(
-    Customers.default
-  );
+  const [currentCustomer, setCurrentCustomer] = useState<Customers>(Customers.default);
   const [items, setItems] = useState<ICheckoutProduct[]>([]);
 
   const handleAdd = (e: MouseEvent<HTMLButtonElement>) => {
@@ -25,12 +23,12 @@ const CheckoutPOC = () => {
     const target = e.target as HTMLButtonElement;
     const c = target.name as Customers;
 
-    co.setCustomer = c;
+    co.setActiveCustomer = c;
     setCurrentCustomer(c);
   };
 
   return (
-    <main>
+    <div>
       <section>
         <h2>Current customer: {currentCustomer}</h2>
         {Object.keys(Customers).map((c) => {
@@ -69,7 +67,7 @@ const CheckoutPOC = () => {
           </p>
         ))}
       </section>
-    </main>
+    </div>
   );
 };
 

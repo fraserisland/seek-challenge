@@ -14,7 +14,7 @@ class Checkout {
 		return new Checkout(pricingRules);
 	}
 
-	set setCustomer(c: Customers) {
+	set setActiveCustomer(c: Customers) {
 		this.customer = c;
 	}
 
@@ -24,7 +24,7 @@ class Checkout {
 		if (!existingProduct) {
 			this.products.push({ ...product, qty: 1 });
 		} else {
-			this.products = this.products.map((p) => (p.name === product.name ? { ...p, qty: p.qty + 1 } : p));
+			existingProduct.qty += 1;
 		}
 
 		return this.products;
@@ -38,13 +38,16 @@ class Checkout {
 			total += product.price * product.qty;
 		});
 
-		Object.keys(this.pricingRules).forEach((c) => {
-			if (c !== this.customer) return;
+		for (const c in this.pricingRules) {
+			if (c !== this.customer) continue;
 
-			this.products.forEach((product: ICheckoutProduct) => {
-				discount += this.pricingRules[c][product.name]?.(product.qty) ?? 0;
-			});
-		});
+			for (const product of this.products) {
+				const calculateDiscount = this.pricingRules[c][product.name];
+				if (!calculateDiscount) continue;
+
+				discount += calculateDiscount(product.qty);
+			}
+		}
 
 		return total - discount;
 	}

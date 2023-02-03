@@ -19,7 +19,7 @@ describe('Checkout', () => {
 	});
 
 	it('calculates the total price with no discounts', () => {
-		checkout.setCustomer = Customers.default;
+		checkout.setActiveCustomer = Customers.default;
 
 		checkout.add(products[Product.classic]);
 		checkout.add(products[Product.standout]);
@@ -28,7 +28,7 @@ describe('Checkout', () => {
 	});
 
 	it('calculates the total price with discounts for Default customer', () => {
-		checkout.setCustomer = Customers.default;
+		checkout.setActiveCustomer = Customers.default;
 
 		checkout.add(products[Product.classic]);
 		checkout.add(products[Product.standout]);
@@ -38,7 +38,7 @@ describe('Checkout', () => {
 	});
 
 	it('calculates the total price with discounts for Second Bite customer', () => {
-		checkout.setCustomer = Customers.secondBite;
+		checkout.setActiveCustomer = Customers.secondBite;
 
 		checkout.add(products[Product.classic]);
 		checkout.add(products[Product.classic]);
@@ -49,7 +49,7 @@ describe('Checkout', () => {
 	});
 
 	it('calculates the total price with discounts for Axil Coffee Roasters customer', () => {
-		checkout.setCustomer = Customers.axilCoffeeRoasters;
+		checkout.setActiveCustomer = Customers.axilCoffeeRoasters;
 
 		checkout.add(products[Product.standout]);
 		checkout.add(products[Product.standout]);
