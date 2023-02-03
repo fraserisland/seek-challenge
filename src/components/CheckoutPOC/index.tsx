@@ -9,14 +9,14 @@ const co = Checkout.new(pricingRules);
 
 const CheckoutPOC = () => {
   const [currentCustomer, setCurrentCustomer] = useState<Customers>(Customers.default);
-  const [items, setItems] = useState<ICheckoutProduct[]>([]);
+  const [checkoutProducts, setCheckoutProducts] = useState<ICheckoutProduct[]>([]);
 
   const handleAdd = (e: MouseEvent<HTMLButtonElement>) => {
     const target = e.target as HTMLButtonElement;
     const p = target.name as Product;
 
     const newProducts = co.add(products[p]);
-    setItems(() => [...newProducts]);
+    setCheckoutProducts(() => [...newProducts]);
   };
 
   const handleCustomerUpdate = (e: MouseEvent<HTMLButtonElement>) => {
@@ -61,7 +61,7 @@ const CheckoutPOC = () => {
 
       <section>
         <h2>Total ${co.total()}</h2>
-        {items.map((item) => (
+        {checkoutProducts.map((item) => (
           <p key={`item-${item.name}`}>
             {item.name}, {item.qty}, {item.price}
           </p>
