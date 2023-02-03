@@ -32,7 +32,7 @@ describe('CheckoutPOC component', () => {
     expect(customerType).toHaveTextContent(/current customer: second bite/i)
   })
 
-  it('displays the added checkout items total', () => {
+  it('displays the added checkout products total', () => {
     render(<CheckoutPOC />)
 
     const total = screen.getByRole('heading', { name: /total \$0/i })
